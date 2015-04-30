@@ -1,0 +1,19 @@
+{
+	"pluginId": "vs.language.ylang",
+	"activationEvents": ["textModel:ylang"],
+	"mainModule": "./ylangMain",
+	"contributes": {
+		"language": [{
+			"id": "ylang",
+			"extensions": [ ".yl" ],
+			"aliases": [ "Ylang", "yl" ]
+		}]
+	},
+	"scripts": {
+		"compile": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../gulpfile.js compile --dir vs.language.ylang"
+	},
+	"_bundling": [
+		{ "name": "/ylangMain" }
+	]
+}
+

@@ -52,7 +52,6 @@ define(["require", "exports"], function (require, exports) {
             'var',
             'while',
             'yield',
-            'in',
             'is'
         ],
         operators: [
@@ -100,10 +99,11 @@ define(["require", "exports"], function (require, exports) {
             '^^',
             '||',
             '::',
+            '.&',
             '...'
         ],
         // definition of words
-        wordDefinition: /(-?[0-9][0-9a-zA-Z_.\-+]*)|(!in)|(!is)|([a-zA-Z_][a-zA-Z0-9_]*)|([!%&*+,\-./:<=>?\^|~]+)|([{}()\[\]])/g,
+        wordDefinition: /(-?[0-9][0-9a-zA-Z_.\-+]*)|(!is)|([a-zA-Z_][a-zA-Z0-9_]*)|([!%&*+,\-./:<=>?\^|~]+)|([{}()\[\]])/g,
         // operator symbols
         symbols: /[!%&*+,\-./:<=>?\^|~]+/,
         // escape sequences
@@ -113,7 +113,6 @@ define(["require", "exports"], function (require, exports) {
             root: [
                 { include: '@whitespace' },
                 [/[a-zA-Z_][a-zA-Z0-9_]*/, { cases: { '@keywords': { token: 'keyword.$0' }, '@default': 'identifier' } }],
-                ['!in', 'keyword.notin'],
                 ['!is', 'keyword.notis'],
                 [/@symbols/, { cases: { '@operators': 'delimiter', '@default': '' } }],
                 [/[{}()\[\]]/, '@brackets'],
